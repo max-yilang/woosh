@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-app :dark="isDarkMode">
+    <v-toolbar>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>Woosh</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn fab @click="toggleDarkMode">
+        <v-icon>{{ isDarkMode ? "brightness_7" : "brightness_3" }}</v-icon>
+      </v-btn>
+    </v-toolbar>
+    <v-content>
+      <ReaderInput />
+    </v-content>
+    <v-footer class="pa-3">
+      <div>Made by Max</div>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import ReaderInput from "./components/ReaderInput";
+import { mapState, mapMutations } from "vuex";
 export default {
-  name: "app",
+  name: "App",
   components: {
-    HelloWorld
-  }
+    ReaderInput
+  },
+  data() {
+    return {
+      //
+    };
+  },
+  methods: {
+    ...mapMutations(["toggleDarkMode"])
+  },
+  computed: mapState(["isDarkMode"])
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style>
+html {
+  /* Vuetify by default turns on the html scrollbar, the following code is used to disable that*/
+  overflow-y: auto;
 }
 </style>
