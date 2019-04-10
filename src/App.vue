@@ -25,12 +25,6 @@
         </div>
       </v-layout>
     </v-footer>
-    <v-snackbar v-model="snackbar">
-      New Update Available,Reload to see the changes!
-      <v-btn color="pink" flat @click="snackbar = false">
-        Update
-      </v-btn>
-    </v-snackbar>
   </v-app>
 </template>
 
@@ -41,11 +35,6 @@ export default {
   name: "App",
   components: {
     ReaderInput
-  },
-  data() {
-    return {
-      snackbar: false
-    };
   },
   methods: {
     ...mapMutations(["toggleDarkMode"])
