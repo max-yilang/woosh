@@ -1,4 +1,6 @@
-# woosh
+# Woosh
+
+### Inspired by [Spdr](https://itunes.apple.com/us/app/spdr-speed-reading/id1307881238?mt=8), Woosh is a simple speed reading progressive web app built on top of Vue.js. Check it out [here](https://woosh.netlify.com/)!
 
 ## Project setup
 ```
@@ -14,16 +16,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
