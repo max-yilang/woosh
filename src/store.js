@@ -4,7 +4,12 @@ import createPersistedState from "vuex-persistedstate";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  plugins: [createPersistedState()],
+  plugins: [
+    // sync between localStorage and Vuex State
+    createPersistedState({
+      paths: ["isDarkMode"]
+    })
+  ],
   state: {
     isDarkMode: true
   },

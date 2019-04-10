@@ -5,16 +5,32 @@
         <span>Woosh</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn fab @click="toggleDarkMode">
-        <v-icon>{{ isDarkMode ? "brightness_7" : "brightness_3" }}</v-icon>
-      </v-btn>
+      <v-icon @click="toggleDarkMode">
+        {{ isDarkMode ? "brightness_7" : "brightness_3" }}
+      </v-icon>
     </v-toolbar>
     <v-content>
       <ReaderInput />
     </v-content>
     <v-footer class="pa-3">
-      <div>Made by Max</div>
+      <v-layout justify-center>
+        <div>
+          Made with <span style="color: #e25555;">&hearts;</span> by
+          <a
+            href="https://github.com/MaxResolution"
+            target="_blank"
+            rel="noopener"
+            >Max</a
+          >
+        </div>
+      </v-layout>
     </v-footer>
+    <v-snackbar v-model="snackbar">
+      New Update Available,Reload to see the changes!
+      <v-btn color="pink" flat @click="snackbar = false">
+        Update
+      </v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -28,7 +44,7 @@ export default {
   },
   data() {
     return {
-      //
+      snackbar: false
     };
   },
   methods: {
